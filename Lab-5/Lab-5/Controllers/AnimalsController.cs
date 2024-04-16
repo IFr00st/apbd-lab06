@@ -19,6 +19,17 @@ public class AnimalsController : ControllerBase
   {
     SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Default"));
     connection.Open();
+
+    SqlCommand command = new SqlCommand();
+    command.Connection = connection;
+    command.CommandText = "SELECT * FROM Animal";
+
+    var reader = command.ExecuteReader();
+    List<object> animals = new List<object>();
+    while (reader.Read())
+    {
+      
+    }
     return Ok();
   }
     
