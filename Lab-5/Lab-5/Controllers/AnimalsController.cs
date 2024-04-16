@@ -18,6 +18,7 @@ public class AnimalsController : ControllerBase
   public IActionResult GetAnimals()
   {
     SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Default"));
+    connection.Open();
     return Ok();
   }
     
